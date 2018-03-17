@@ -1,0 +1,28 @@
+
+{
+    "prueba1App": {
+        "procesoCarga" : {
+            "home": {
+                "title": "Proceso Cargas",
+                "createLabel": "Crear nuevo Proceso Carga",
+                "createOrEditLabel": "Crear o editar Proceso Carga"
+            },
+            "created": "Un nuevo Proceso Carga ha sido creado con el identificador {{ param }}",
+            "updated": "Un Proceso Carga ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Proceso Carga ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Proceso Carga {{ id }}?"
+            },
+            "detail": {
+                "title": "Proceso Carga"
+            },
+            "estado": "Estado",
+            "programado": "Programado",
+            "inicio": "Inicio",
+            "fin": "Fin",
+            "comentario": "Comentario",
+            "zona": "Zona",
+            "log": "Log"
+        }
+    }
+}

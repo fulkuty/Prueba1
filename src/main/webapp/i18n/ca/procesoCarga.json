@@ -1,0 +1,28 @@
+
+{
+    "prueba1App": {
+        "procesoCarga" : {
+            "home": {
+                "title": "Proceso Cargas",
+                "createLabel": "Create a new Proceso Carga",
+                "createOrEditLabel": "Create or edit a Proceso Carga"
+            },
+            "created": "A new Proceso Carga is created with identifier {{ param }}",
+            "updated": "A Proceso Carga is updated with identifier {{ param }}",
+            "deleted": "A Proceso Carga is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Proceso Carga {{ id }}?"
+            },
+            "detail": {
+                "title": "Proceso Carga"
+            },
+            "estado": "Estado",
+            "programado": "Programado",
+            "inicio": "Inicio",
+            "fin": "Fin",
+            "comentario": "Comentario",
+            "zona": "Zona",
+            "log": "Log"
+        }
+    }
+}
