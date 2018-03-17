@@ -45,6 +45,10 @@ public class CacheConfiguration {
             cm.createCache(es.fulkuty.prueba1.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(es.fulkuty.prueba1.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(es.fulkuty.prueba1.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(es.fulkuty.prueba1.domain.ProcesoCarga.class.getName(), jcacheConfiguration);
+            cm.createCache(es.fulkuty.prueba1.domain.ProcesoCarga.class.getName() + ".logs", jcacheConfiguration);
+            cm.createCache(es.fulkuty.prueba1.domain.LogCarga.class.getName(), jcacheConfiguration);
+            cm.createCache(es.fulkuty.prueba1.domain.ZonaCarga.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

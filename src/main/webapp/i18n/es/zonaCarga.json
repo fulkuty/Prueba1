@@ -1,0 +1,22 @@
+
+{
+    "prueba1App": {
+        "zonaCarga" : {
+            "home": {
+                "title": "Zona Cargas",
+                "createLabel": "Crear nuevo Zona Carga",
+                "createOrEditLabel": "Crear o editar Zona Carga"
+            },
+            "created": "Un nuevo Zona Carga ha sido creado con el identificador {{ param }}",
+            "updated": "Un Zona Carga ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Zona Carga ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Zona Carga {{ id }}?"
+            },
+            "detail": {
+                "title": "Zona Carga"
+            },
+            "zona": "Zona"
+        }
+    }
+}

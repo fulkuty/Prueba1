@@ -1,0 +1,62 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "zona",
+            "otherEntityName": "zonaCarga",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "logCarga"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "proceso",
+            "otherEntityName": "procesoCarga",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "time",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Estado",
+            "fieldValues": "CARGANDO,CARGADO,ESPERANDO,PARADO"
+        },
+        {
+            "fieldName": "programado",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "inicio",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fin",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "comentario",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180317124610",
+    "entityTableName": "log_carga",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

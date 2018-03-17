@@ -1,0 +1,83 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProcesoCargaLabel" jhiTranslate="prueba1App.procesoCarga.home.createOrEditLabel">Create or edit a Proceso Carga</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!procesoCarga.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="procesoCarga.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="prueba1App.procesoCarga.estado" for="field_estado">Estado</label>
+            <select class="form-control" name="estado" [(ngModel)]="procesoCarga.estado" id="field_estado" >
+                <option value="CARGANDO">{{'prueba1App.Estado.CARGANDO' | translate}}</option>
+                <option value="CARGADO">{{'prueba1App.Estado.CARGADO' | translate}}</option>
+                <option value="ESPERANDO">{{'prueba1App.Estado.ESPERANDO' | translate}}</option>
+                <option value="PARADO">{{'prueba1App.Estado.PARADO' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="prueba1App.procesoCarga.programado" for="field_programado">Programado</label>
+            <div class="d-flex">
+                <input id="field_programado" type="datetime-local" class="form-control" name="programado" [(ngModel)]="procesoCarga.programado"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.programado?.dirty && editForm.controls.programado?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.programado?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.programado?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="prueba1App.procesoCarga.inicio" for="field_inicio">Inicio</label>
+            <div class="d-flex">
+                <input id="field_inicio" type="datetime-local" class="form-control" name="inicio" [(ngModel)]="procesoCarga.inicio"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="prueba1App.procesoCarga.fin" for="field_fin">Fin</label>
+            <div class="d-flex">
+                <input id="field_fin" type="datetime-local" class="form-control" name="fin" [(ngModel)]="procesoCarga.fin"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="prueba1App.procesoCarga.comentario" for="field_comentario">Comentario</label>
+            <input type="text" class="form-control" name="comentario" id="field_comentario"
+                [(ngModel)]="procesoCarga.comentario" required/>
+            <div [hidden]="!(editForm.controls.comentario?.dirty && editForm.controls.comentario?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.comentario?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="prueba1App.procesoCarga.zona" for="field_zona">Zona</label>
+            <select class="form-control" id="field_zona" name="zona" [(ngModel)]="procesoCarga.zonaId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="zonaCargaOption.id" *ngFor="let zonaCargaOption of zonas; trackBy: trackZonaCargaById">{{zonaCargaOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,48 @@
+
+<div *ngIf="procesoCarga">
+    <h2><span jhiTranslate="prueba1App.procesoCarga.detail.title">Proceso Carga</span> {{procesoCarga.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="prueba1App.procesoCarga.estado">Estado</span></dt>
+        <dd>
+            <span jhiTranslate="{{'prueba1App.Estado.' + procesoCarga.estado}}">{{procesoCarga.estado}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.procesoCarga.programado">Programado</span></dt>
+        <dd>
+            <span>{{procesoCarga.programado | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.procesoCarga.inicio">Inicio</span></dt>
+        <dd>
+            <span>{{procesoCarga.inicio | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.procesoCarga.fin">Fin</span></dt>
+        <dd>
+            <span>{{procesoCarga.fin | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.procesoCarga.comentario">Comentario</span></dt>
+        <dd>
+            <span>{{procesoCarga.comentario}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.procesoCarga.zona">Zona</span></dt>
+        <dd>
+            <div *ngIf="procesoCarga.zonaId">
+                <a [routerLink]="['/zona-carga-my-suffix', procesoCarga.zonaId]">{{procesoCarga.zonaId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'proceso-carga-my-suffix/'+ procesoCarga.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

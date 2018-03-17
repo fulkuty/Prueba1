@@ -1,0 +1,29 @@
+
+{
+    "prueba1App": {
+        "logCarga" : {
+            "home": {
+                "title": "Log Cargas",
+                "createLabel": "Crear nuevo Log Carga",
+                "createOrEditLabel": "Crear o editar Log Carga"
+            },
+            "created": "Un nuevo Log Carga ha sido creado con el identificador {{ param }}",
+            "updated": "Un Log Carga ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Log Carga ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Log Carga {{ id }}?"
+            },
+            "detail": {
+                "title": "Log Carga"
+            },
+            "time": "Time",
+            "estado": "Estado",
+            "programado": "Programado",
+            "inicio": "Inicio",
+            "fin": "Fin",
+            "comentario": "Comentario",
+            "zona": "Zona",
+            "proceso": "Proceso"
+        }
+    }
+}

@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="prueba1App.procesoCarga.home.title">Proceso Cargas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-proceso-carga-my-suffix" [routerLink]="['/', { outlets: { popup: ['proceso-carga-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="prueba1App.procesoCarga.home.createLabel">
+            Create new Proceso Carga
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="procesoCargas">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="estado"><span jhiTranslate="prueba1App.procesoCarga.estado">Estado</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="programado"><span jhiTranslate="prueba1App.procesoCarga.programado">Programado</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="inicio"><span jhiTranslate="prueba1App.procesoCarga.inicio">Inicio</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="fin"><span jhiTranslate="prueba1App.procesoCarga.fin">Fin</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="comentario"><span jhiTranslate="prueba1App.procesoCarga.comentario">Comentario</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="zonaId"><span jhiTranslate="prueba1App.procesoCarga.zona">Zona</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let procesoCarga of procesoCargas ;trackBy: trackId">
+                <td><a [routerLink]="['../proceso-carga-my-suffix', procesoCarga.id ]">{{procesoCarga.id}}</a></td>
+                <td jhiTranslate="{{'prueba1App.Estado.' + procesoCarga.estado}}">{{procesoCarga.estado}}</td>
+                <td>{{procesoCarga.programado | date:'medium'}}</td>
+                <td>{{procesoCarga.inicio | date:'medium'}}</td>
+                <td>{{procesoCarga.fin | date:'medium'}}</td>
+                <td>{{procesoCarga.comentario}}</td>
+                <td>
+                    <div *ngIf="procesoCarga.zonaId">
+                        <a [routerLink]="['../zona-carga-my-suffix', procesoCarga.zonaId  ]" >{{procesoCarga.zonaId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../proceso-carga-my-suffix', procesoCarga.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'proceso-carga-my-suffix/'+ procesoCarga.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'proceso-carga-my-suffix/'+ procesoCarga.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

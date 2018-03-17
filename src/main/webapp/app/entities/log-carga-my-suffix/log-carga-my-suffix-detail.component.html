@@ -1,0 +1,58 @@
+
+<div *ngIf="logCarga">
+    <h2><span jhiTranslate="prueba1App.logCarga.detail.title">Log Carga</span> {{logCarga.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="prueba1App.logCarga.time">Time</span></dt>
+        <dd>
+            <span>{{logCarga.time | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.logCarga.estado">Estado</span></dt>
+        <dd>
+            <span jhiTranslate="{{'prueba1App.Estado.' + logCarga.estado}}">{{logCarga.estado}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.logCarga.programado">Programado</span></dt>
+        <dd>
+            <span>{{logCarga.programado | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.logCarga.inicio">Inicio</span></dt>
+        <dd>
+            <span>{{logCarga.inicio | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.logCarga.fin">Fin</span></dt>
+        <dd>
+            <span>{{logCarga.fin | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.logCarga.comentario">Comentario</span></dt>
+        <dd>
+            <span>{{logCarga.comentario}}</span>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.logCarga.zona">Zona</span></dt>
+        <dd>
+            <div *ngIf="logCarga.zonaId">
+                <a [routerLink]="['/zona-carga-my-suffix', logCarga.zonaId]">{{logCarga.zonaId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="prueba1App.logCarga.proceso">Proceso</span></dt>
+        <dd>
+            <div *ngIf="logCarga.procesoId">
+                <a [routerLink]="['/proceso-carga-my-suffix', logCarga.procesoId]">{{logCarga.procesoId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'log-carga-my-suffix/'+ logCarga.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

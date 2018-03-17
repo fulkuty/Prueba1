@@ -1,0 +1,11 @@
+{
+    "prueba1App": {
+        "Estado" : {
+            "null": "",
+            "CARGANDO": "CARGANDO",
+            "CARGADO": "CARGADO",
+            "ESPERANDO": "ESPERANDO",
+            "PARADO": "PARADO"
+        }
+    }
+}

@@ -1,0 +1,47 @@
+enum Estado {
+    CARGANDO, CARGADO, ESPERANDO, PARADO
+}
+
+entity ProcesoCarga {
+	id Long required 
+    estado Estado
+    programado Instant required
+    inicio Instant
+    fin Instant
+    comentario	String required
+}
+
+entity LogCarga {
+	time Instant required
+    estado Estado
+    programado Instant required
+    inicio Instant
+    fin Instant
+    comentario	String required
+}
+
+entity ZonaCarga {
+	zona String required
+}
+
+relationship OneToOne {
+	ProcesoCarga{zona} to ZonaCarga
+    LogCarga{zona} to ZonaCarga
+}
+
+relationship OneToMany {
+	ProcesoCarga{Log} to LogCarga{Proceso}
+}
+
+
+
+// Set pagination options
+paginate LogCarga, ProcesoCarga with infinite-scroll
+//paginate Job with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl //except Employee, Job
+// Set an angular suffix
+angularSuffix * with mySuffix

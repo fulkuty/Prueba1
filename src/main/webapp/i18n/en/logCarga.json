@@ -1,0 +1,29 @@
+
+{
+    "prueba1App": {
+        "logCarga" : {
+            "home": {
+                "title": "Log Cargas",
+                "createLabel": "Create a new Log Carga",
+                "createOrEditLabel": "Create or edit a Log Carga"
+            },
+            "created": "A new Log Carga is created with identifier {{ param }}",
+            "updated": "A Log Carga is updated with identifier {{ param }}",
+            "deleted": "A Log Carga is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Log Carga {{ id }}?"
+            },
+            "detail": {
+                "title": "Log Carga"
+            },
+            "time": "Time",
+            "estado": "Estado",
+            "programado": "Programado",
+            "inicio": "Inicio",
+            "fin": "Fin",
+            "comentario": "Comentario",
+            "zona": "Zona",
+            "proceso": "Proceso"
+        }
+    }
+}
