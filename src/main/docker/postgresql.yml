@@ -1,0 +1,11 @@
+version: '2'
+services:
+    prueba1-postgresql:
+        image: postgres:9.6.5
+        # volumes:
+        #     - ~/volumes/jhipster/Prueba1/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=Prueba1
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
